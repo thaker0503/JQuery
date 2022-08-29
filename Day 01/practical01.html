@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+</head>
+<body>
+    <h1 align="center"><u>  Practical 01 </u></h1>
+    
+    <h2 style="cursor: pointer;"></h2>
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+    <div>
+        <p>This is a paragraph.</p>
+        <p>This is another paragraph.</p>
+    </div>
+    
+    <button id="toggle">Toggle</button>
+    <br>
+    
+    <!-- <img src="./img/bulbOn.svg" alt="" id="bulb">
+    <img src="./img/bulbOff.svg" alt="" id="bulbOff"> -->
+    
+    <ul id="mainUl">
+        <li>Google</li>
+        <li>Google</li>
+        <li>Google</li>
+        <li>Google</li>
+        <li>Google</li>
+        <li>Google</li>
+        <li>Google</li>
+        <li>Google</li>
+        <li>Google</li>
+        <li>Google</li>
+    </ul>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Location</th>
+            <th>Found in</th>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Type</td>
+            <td>Location</td>
+            <td>Found in</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Type</td>
+            <td>Location</td>
+            <td>Found in</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Type</td>
+            <td>Location</td>
+            <td>Found in</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Type</td>
+            <td>Location</td>
+            <td>Found in</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Type</td>
+            <td>Location</td>
+            <td>Found in</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Type</td>
+            <td>Location</td>
+            <td>Found in</td>
+        </tr>
+        
+    </table>
+
+    <script>
+        const text = "Hello World!!";
+
+
+        $(document).ready(function(){
+            $("h2").text(`${text}`);
+            $("h2").click(function(){
+                $('p').show("slow");
+            });
+
+            $("p").click(function(){
+                $(this).css('color', 'red');
+            });
+
+            $("#hide").click(function(){
+                $("p").hide(1000);
+            });
+            $("#show").click(function(){
+                $("p").show(2000);
+            });
+            $("#toggle").click(function(){
+                $("p").toggle();
+            });
+
+            $("#mainUl li:odd").css("color", "red");
+            $("table,tr ").css("border", "1px solid black");
+            $("tr:odd").css("background-color", "lightgray");
+            $("tr:even").css("background-color", "white");
+         });
+       
+    </script>
+</body>
+</html>
