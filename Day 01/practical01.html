@@ -220,6 +220,7 @@
 
             // Task 1
             // creating a trigger for custom event increment
+            let count = 0;
             $("#increment").bind("click",function(){
                 $("#increment").trigger("increment");
             });
@@ -234,10 +235,12 @@
             // adding a click event on bind button which will enable the custom events increment and decrement using On method
             $("#bind").bind("click",function(){
                 $("#increment").bind("increment",function(){
-                    $("#countOutPut").text(parseInt($("#countOutPut").text()) + 1);
+                    count++;
+                    $("#countOutPut").text(`${count}`);
                 });
                 $("#decrement").bind("decrement",function(){
-                    $("#countOutPut").text(parseInt($("#countOutPut").text()) - 1);
+                    count--;
+                    $("#countOutPut").text(`${count}`);
                 });
                 // alert("Event Binded");
                 $("#status").text("Event Binded")

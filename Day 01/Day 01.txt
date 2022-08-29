@@ -1,0 +1,38 @@
+###############29/08/2022##############
+
+1. What is jQuery.
+2. Getting started with jQuery 
+3. Features of jQuery
+4. Usage of jQuery
+   - Using cdn 
+   - Using library
+5. Adding jQuery to your website.  
+6. jQuery Selectors
+   - Element Selector
+   - Id Selector
+   - Class Selector
+   - All Elements Selector
+7. jQuery Events
+   - Mouse Events
+   - Keyboard Events
+   - Form Events
+   - Document/Window Events
+8. User Defined Events
+   - using On/Off
+   - using Bind/Unbind
+9. jQuery Effects
+   - Hide/Show
+      - hide()
+      - show()
+      - toggle()
+   - Fade
+      - fadeIn()
+      - fadeOut()
+      - fadeToggle()
+      - fadeTo()
+   - Slide
+      - slideUp()
+      - slideDown()
+      - slideToggle()
+10. Completed the given task of creating two custom events for incrementing and decrementing the value inside the label. Two other buttons named Bind and Unbind respectively. Bind combines the two custom events to + and - buttons and unbind removes the events respectively.
+   
