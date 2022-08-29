@@ -83,6 +83,49 @@
         
     </table>
 
+    <br>
+    Double Click below to change the color of the text:
+    <p id="doubleClick">Double Click Me</p>
+
+
+    mouse over the text below to change the background-color of the text:
+    <p id="mouseover">mouse over event listener</p>
+
+    mouseenter & mouseleave the text below to change the color of the text:
+    <p id="enter">mouse enter event listener</p>
+
+    mousedown and mouseup to change the size of the text:
+    <p id="down">mousedown event listener</p>
+    <p id="up">mouseup event listener</p>
+
+    Hover event listener on below text to change the color of the text:
+    <p id="hover">Hover takes two functions as a combination of mouseoenter() and mouseleave() methods.</p>
+
+
+    Focus event listener on text input: <input type="text" placeholder="Enter anything">
+    <br>
+
+    Multiple event listeners on the same element:
+    <input type="text" placeholder="Enter anything" id="multipleEvents" />
+
+    <br><br>
+    <div style="font-size: 40px;display:flex; justify-content: center; align-items: center; flex-direction: column;">
+        <div style="width:30%;display:flex; justify-content: space-around; align-items: center;">
+            <button id="increment" style="font-size: 30px;cursor: pointer;">+</button>
+            <label id="countOutPut">0</label>
+            <button id="decrement" style="font-size: 30px;cursor: pointer;">-</button>
+        </div>
+        
+        <div> 
+            <button id="bind" style="font-size:20px;cursor: pointer;">Bind</button>
+            <button id="unbind" style="font-size:20px;cursor: pointer;">Unbind</button>
+        </div>
+        <div>
+            <p style="font-size: 20px;">Event Status: <span id="status"></span></p>
+        </div>
+    </div>
+
+    <footer style="width: 100%; height: 50px; background: black; margin-top: 20px;color:#d7d7d7;display: flex;justify-content: center;align-items: center; ">&COPY;Created by Yatharth Thaker</footer>
     <script>
         const text = "Hello World!!";
 
@@ -111,6 +154,107 @@
             $("table,tr ").css("border", "1px solid black");
             $("tr:odd").css("background-color", "lightgray");
             $("tr:even").css("background-color", "white");
+            $("tr:first").css("background-color", "lightblue");
+            $("tr:last").css("background-color", "lightgreen");
+            
+            //  DoubleClick Event Handler
+            $("#doubleClick").dblclick(function(){
+                $(this).css("color", "black");
+            });
+
+            //  mouseover Event Handler
+            $("#mouseover").mouseover(function(){
+                $(this).css("background-color", "red");
+            });
+
+            // mouseout Event Handler
+            $("#mouseover").mouseout(function(){
+                $(this).css("background-color", "white");
+            });
+            
+            //  mouseenter Event Handler
+            $("#enter").mouseenter(function(){
+                $(this).css("color", "blue");
+            });
+
+            //  mouseleave Event Handler
+            $("#enter").mouseleave(function(){
+                $(this).css("color", "black");
+            });
+
+            //  mousedown Event Handler
+            $("#down").mousedown(function(){
+                $(this).css("font-size", "20px");
+            });
+
+            //  mouseup Event Handler
+            $("#up").mouseup(function(){
+                $(this).css("font-size", "15px");
+            });
+
+            //  Hover Event Handler
+            $("#hover").hover(function(){
+                $(this).css("font-size", "50px");
+            }, function(){
+                $(this).css("font-size", "16px");
+            }
+            );
+
+            //  Focus and Blur Event Handler
+            $('input').focus(function(){
+                $(this).css("outline", "2px solid red");
+            });
+            $('input').blur(function(){
+                $(this).css("outline", "2px solid green");
+            });
+
+
+            // On Method
+            $("#multipleEvents").on(
+                "mouseleave click",
+                function(){
+                    $(this).css("outline", "2px solid blue");
+                }
+            );
+            
+
+            // Task 1
+            // creating a trigger for custom event increment
+            $("#increment").bind("click",function(){
+                $("#increment").trigger("increment");
+            });
+
+            // creating a trigger for custom event decrement
+            $("#decrement").bind("click",function(){
+                $("#decrement").trigger("decrement");
+            });
+            
+            $("#status").text("First Bind event to know its status...")
+
+            // adding a click event on bind button which will enable the custom events increment and decrement using On method
+            $("#bind").bind("click",function(){
+                $("#increment").bind("increment",function(){
+                    $("#countOutPut").text(parseInt($("#countOutPut").text()) + 1);
+                });
+                $("#decrement").bind("decrement",function(){
+                    $("#countOutPut").text(parseInt($("#countOutPut").text()) - 1);
+                });
+                // alert("Event Binded");
+                $("#status").text("Event Binded")
+            });
+            
+            // adding a click event on unbind button which will disable the custom events increment and decrement using Off method
+            $("#unbind").bind("click",function(){
+                $("#increment").unbind("increment");
+                $("#decrement").unbind("decrement");
+                // alert("Event Unbinded");
+                $("#status").text("Event Unbinded")
+            });
+
+        
+
+            
+
          });
        
     </script>
