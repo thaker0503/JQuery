@@ -39,6 +39,6 @@
     - outerWidth()
     - outerHeight(true)
     - outerWidth(true)
-
+3. Created a mini project of toggleSwitch, which changes the mode of the webpage (Dark and Light).
 
  
