@@ -1,0 +1,44 @@
+###############30/08/2022##############
+
+1. jQuery Effects
+   - jQuery Animate
+     - Using animate() method
+     - Manipulating multiple properties
+     - Using Relarive Values
+     - Using Pre-defined Values
+     - animate() uses FCFS 
+   - jQuery stop()
+   - jQuery Callback
+   - jQuery Chaining
+2. jQuery HTML/DOM MAnipulation
+  - jQuery Get and Set Content and Attributes
+    - text()
+    - html()
+    - val()
+    - attr()
+    - callback functions for each
+  - jQuery - Add Elements
+    - append()
+    - prepend()
+    - after()
+    - before()  
+  - jQuery - Remove Elements
+    - remove()
+    - empty()
+  - jQuery CSS Classes
+    - addClass()
+    - removeClass()
+    - toggleClass()
+    - css()
+  - jQuery Dimensions
+    - height()
+    - width()
+    - innerHeight()
+    - innerWidth()
+    - outerHeight()
+    - outerWidth()
+    - outerHeight(true)
+    - outerWidth(true)
+
+
+ 

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 02 | Practical 03</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+</head>
+
+<body>
+    <h1 id="heading"><u>Practical 03</u></h1>
+    <h2>jQuery HTML Manipulation</h2>
+    <li>The jQuery attr() method is used to <b>GET</b> attribute values.
+
+        ==> Example:
+        <ol>
+            <li>Getting the href attribute of an anchor tag.
+                <ul>
+                    <li><a href="https://google.com/" id="google" target="_blank" referrerpolicy="noreferrer">Link</a>
+                    </li>
+                    <li><button id="googleBtn">Get</button> href Value of above link</li>
+                    <li>Output: <span id="googleOutPut"></span></li>
+                </ul>
+            </li>
+            <li>Getting the src attribute of an image tag.
+                <ul>
+                    <img src="../Day 01/img/bulbOff.svg" id="img" alt="" />
+                    <li><button id="imgBtn">Get</button> src Value of above image</li>
+                    <li>Output: <span id="imgOutPut"></span></li>
+                </ul>
+            </li>
+        </ol>
+    </li>
+    <li>The jQuery attr() method is used to <b>SET</b> attribute values.
+
+        ==> Example:
+        <ol>
+            <li>Setting the href attribute of an anchor tag.
+                <ul>
+                    <li><a href="" id="link" target="_blank" referrerpolicy="noreferrer">Link</a></li>
+                    <li><input type="text" placeholder="Enter link to set to above link" id="linkInput"></li>
+                    <li><button id="linkBtnSet">Set</button> new href Value of above link</li>
+                    <li>Current link: <span id="linkOutPut"></span></li>
+                </ul>
+            </li>
+            <li>Setting the src attribute of an image tag.
+                <ul>
+                    <img src="../Day 01/img/bulbOff.svg" id="imgSet" alt="" />
+                    <li><input type="text" placeholder="Enter link to set to above link" id="imgInput"></li>
+                    <li><button id="imgBtnSet">Set</button> src Value of above image</li>
+                    <li>Output: <span id="imgSetOutPut"></span></li>
+                </ul>
+            </li>
+        </ol>
+    </li>
+    <script>
+        $(document).ready(function () {
+
+            $("#heading").css({
+                textAlign: "center"
+            })
+
+            // jQuery HTML
+            // Get attr()
+
+            // google link get attr
+            $("#googleBtn").click(function () {
+                const google = $("#google").attr("href");
+                $("#googleOutPut").text(google);
+            })
+
+            // img src get attr
+            $("#imgBtn").click(function () {
+                const img = $("#img").attr("src");
+                $("#imgOutPut").text(img);
+            })
+
+            // link set attr
+
+            $("#linkBtnSet").click(function () {
+                var link1 = $("#linkInput").val();
+                $("#link").attr("href", `${link1}`)
+                $("#linkOutPut").text(link1)
+            })
+
+            // img set attr
+            $("#imgBtnSet").click(function(){
+                var image = $("#imgInput").val()
+                $("#imgSet").attr("src",`${image}`)
+                $("#imgSetOutPut").text(image)
+                
+            })
+
+
+        })
+    </script>
+</body>
+
+</html>
