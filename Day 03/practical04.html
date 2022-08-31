@@ -6,8 +6,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 03 | Practical 04</title>
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+    </style>
 </head>
 <body>
-    
+    <h1 id="heading"><u>Practical 03</u></h1>
+
+    <div>Traversing DOM Elements , Moving Up , Down and sideways in the DOM tree.</div>
+    <div id="great-grand">
+        div (great-grandfather)
+        <ul id="grand">
+            ul (grandfather)
+            <li id="parent">
+                li (parent)
+                <br><br>
+                <span id="span">
+                    span (Ancestor)
+                </span>
+            </li>
+        </ul>
+    </div>
+    <button id="btn">Click Me</button>
+    <br><br>
+
+    <div id="container">
+        <p>A paragraph in a div.</p>
+        <span>A span in a div.</span>
+        <h2 class="org">H2</h2>
+        <p>Another paragraph in a div.</p>
+        <h1>H1</h1>
+        <li>List in a div</li>
+    </div>
+
+
+
+    <script>
+         $(document).ready(function () {
+            $("#heading").css({
+                textAlign : "center",
+                margin : "50px 20px"
+                
+            })
+            $("#great-grand").css({
+                border: "2px solid black",
+                width: "400px",
+                height: "200px",
+                padding: "16px 20px"
+                
+
+            }).children().css({
+                border: "2px solid red",
+                height: "140px",
+                padding: "16px 20px"
+            }).children().css({
+                border: "2px solid blue",
+                listStyleType: "none",
+                padding: "16px 20px"
+            }).children().css({
+                border: "2px solid green",
+                padding: "4px 75px"
+            })
+
+
+            $("#btn").click(function () {
+                $("#span").css({
+                    border: "2px solid green",
+                    padding: "4px 80px"
+
+                }).parent().css({
+                    border: "2px solid blue",
+                    listStyleType: "none",
+                    padding: "18px 20px"
+                }).parent().css({
+                    border: "2px solid red",
+                    height: "140px",
+                    padding: "16px 20px",
+                }).parent().css({
+                    border: "2px solid black",
+                    width: "400px",
+                    height: "200px",
+                    padding: "16px 20px"
+                }).slideToggle(2000);
+
+            }).css({
+                margin : "0px 20px",
+                padding : "10px 20px",
+                cursor : "pointer"
+            })
+
+            $("#container").css({
+                padding : "20px",
+                width : "30%",
+                border : "3px solid black"
+            }).children().css({
+                margin : "10px 0px",
+                border : "2px solid black",
+                width : "100%"
+            }).siblings().css({
+                backgroundColor : "red"
+            })
+
+            $("div").css({
+                margin: "20px 10px"
+            })
+
+              // $("#container").children().siblings("p").css({background: "yellow"});
+             // $("#container").children().siblings(":nth-child(even)").css({background: "yellow"});
+             // $("#container").children().siblings("p:last").css({background: "yellow"});
+             // $("h2").next().css({ background: "yellow" });
+             // $("h2").nextAll().css({ background: "yellow" });
+             // $("h2").nextAll("p").css({ background: "yellow" });
+             // $("h2").nextUntil("li").css({ background: "yellow" });
+             // $("p").nextUntil("p").css({ background: "yellow" });
+             // $("p").prev().css({ background: "yellow" });
+             // $("h1").prevAll("p").css({ background: "yellow" });
+             // $("li").prevUntil("span").css({ background: "yellow" });
+             // $("#container").first().children(":nth-child(1)").css({ background: "yellow" });
+             // $("div").last().css({ background: "yellow" });  
+             // $("div").last().children().css({ background: "yellow" });  
+            //  $("div").children().eq(6).css({ background: "yellow" });  
+            //  $("#container p").eq(0).css({ background: "yellow" });  
+            //  $("div").children().filter(".org").css({ background: "orange" });  
+            //  $("#container:last").children().not(".org").css({ background: "teal" });
+        })
+    </script>
 </body>
 </html>

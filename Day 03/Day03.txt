@@ -2,4 +2,25 @@
 
 1. jQuery Traversing
    - Traversing the DOM
-   - 
+   - Traversing - Ancestors
+     - parent()
+     - parents()
+     - parentUntil()
+   - Traversing - Descendants
+     - children()
+     - find()
+   - Traversing - Siblings
+     - siblings()
+     - next()
+     - nextAll()
+     - nextUntil()
+     - prev()
+     - prevAll()
+     - prevUntil()  
+   - jQuery Filtering
+     - first()
+     - last()
+     - eq()
+     - not()
+     - filter()
+2. Creating Accordion using HTML, CSS and jQuery    <==  Pending

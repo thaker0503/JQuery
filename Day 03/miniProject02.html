@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordian | jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .container {
+        width: 600px;
+        margin-bottom: 30px;
+        background-color: #d7d7d7;
+        color: black;
+        padding: 15px 20px;
+        border-radius: 5px;
+
+    }
+
+    .ard_info:nth-child(n) {
+        display: none;
+        text-align: justify;
+    }
+
+
+    .ard_info hr {
+        margin: 10px 0px;
+    }
+
+    .active{
+        display: block !important;
+        transition: all .5s;
+    }
+    
+
+    .down {
+        cursor: pointer;
+    }
+
+</style>
+
+<body>
+    <div class="container">
+        <h3><i class="fa-solid fa-minus down"></i> Accordion 1  </h3>
+        <div class="ard_info active">
+            <hr>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolor voluptatem non asperiores
+                soluta voluptatibus quisquam molestias excepturi ut a ipsam accusamus odio quis unde qui earum rem ex
+                totam ratione deserunt amet itaque ea laudantium! Veritatis natus a officia ipsum provident
+                necessitatibus, impedit.  </p>
+        </div>
+    </div>
+    <div class="container">
+        <h3><i class="fa-solid fa-plus down"></i> Accordion 2 </h3>
+        <div class="ard_info" >
+            <hr>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolor voluptatem non asperiores
+                soluta voluptatibus quisquam molestias excepturi ut a ipsam accusamus odio quis unde qui earum rem ex
+                totam ratione deserunt amet itaque ea laudantium! Veritatis natus a officia ipsum provident
+                necessitatibus, impedit. </p>
+        </div>
+    </div>
+    <div class="container">
+        <h3><i class="fa-solid fa-plus down"></i> Accordion 3 </h3>
+        <div class="ard_info">
+            <hr>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolor voluptatem non asperiores
+                soluta voluptatibus quisquam molestias excepturi ut a ipsam accusamus odio quis unde qui earum rem ex
+                totam ratione deserunt amet itaque ea laudantium! Veritatis natus a officia ipsum provident
+                necessitatibus, impedit.</p>
+        </div>
+    </div>
+
+
+    <!-- jQuery -->
+    <script>
+        $(document).ready(function () {
+            // $(".ard_info").first().css({
+            //     display: "block"
+            // })
+            
+            // else {
+            //     $("h3").children().removeClass("fa-minus")
+            //     $("h3").children().addClass("fa-plus")
+
+            // }
+            
+            $("h3").click(function () {
+                $(this).siblings("div").toggleClass("active")
+                $(this).parent().siblings().children("div").removeClass("active")
+
+                
+                // // $(this).children().toggleClass("fa-plus fa-minus")
+                // const active = $(".ard_info").hasClass("active");
+                // if ($(this).active) {
+                //     $(".ard_info").siblings("h3").children().removeClass("fa-plus").addClass("fa-minus")
+                // }
+                // else {
+                //     $(".ard_info").siblings("h3").children().removeClass("fa-minus").addClass("fa-plus")
+
+                // }
+                
+                // $(this).parent().prev().siblings().children("div").removeClass("active")
+                // $(this).siblings("div").slideToggle(500)
+                // $(this).siblings("div").not(active).slideToggle(500)
+
+            })
+
+        })
+
+    </script>
+</body>
+
+</html>
