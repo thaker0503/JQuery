@@ -106,19 +106,20 @@
             // }
             
             $("h3").click(function () {
+                if ($(this).children().hasClass("fa-plus")) {
+                    $(this).children().removeClass("fa-plus").addClass("fa-minus")
+                }
+                else {
+                    $(this).children().removeClass("fa-minus").addClass("fa-plus")
+
+                }
                 $(this).siblings("div").toggleClass("active")
                 $(this).parent().siblings().children("div").removeClass("active")
 
-                
+
                 // // $(this).children().toggleClass("fa-plus fa-minus")
                 // const active = $(".ard_info").hasClass("active");
-                // if ($(this).active) {
-                //     $(".ard_info").siblings("h3").children().removeClass("fa-plus").addClass("fa-minus")
-                // }
-                // else {
-                //     $(".ard_info").siblings("h3").children().removeClass("fa-minus").addClass("fa-plus")
-
-                // }
+                
                 
                 // $(this).parent().prev().siblings().children("div").removeClass("active")
                 // $(this).siblings("div").slideToggle(500)
