@@ -1,0 +1,5 @@
+###############31/08/2022##############
+
+1. jQuery Traversing
+   - Traversing the DOM
+   - 
