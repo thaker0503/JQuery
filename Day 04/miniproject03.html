@@ -5,8 +5,134 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scrollspy | jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            
+            background-color: white;
+        }
+        main{
+            margin: 20px;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            
+        }
+        .side-navbar{
+            width: 20%;
+            display: flex;
+            /* justify-content: center; */
+            /* align-items: center; */
+            flex-direction: column;
+        }
+        .side-navbar a{
+            text-decoration: none;
+            color: black;
+            margin: 10px;
+            font-size: x-large;
+            padding: 10px 20px;
+        }
+        .side-navbar a:hover,.side-navbar a.active{
+            background-color: #2D6EFD;
+            color: white;
+            border-radius: 5px;
+        }
+        .main-content{
+            width: 70%;
+            height: 300px;
+            overflow: hidden scroll;
+            padding: 10px 20px;
+            scroll-behavior: smooth;
+        }
+        .items,.items h3,.items p{
+            padding: 10px 20px;
+            text-align: justify;
+        }
+
+    </style>
 </head>
 <body>
-    
+   <main>
+        <div class="side-navbar">
+            <a href="#item1" id="a1" class="active">Item 1</a>
+            <a href="#item2" id="a2">Item 2</a>
+            <a href="#item3" id="a3">Item 3</a>
+        </div>
+        <div class="main-content">
+            <div class="items" id="item1">
+                <h3>Item 1</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit expedita cupiditate suscipit voluptatum quos,
+                    iure, laudantium a harum nihil, eos minus esse commodi blanditiis totam perferendis cum iusto architecto
+                    distinctio.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque magni fugit corporis reprehenderit reiciendis
+                    et
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero blanditiis voluptates autem necessitatibus ipsum alias natus, perferendis ipsa sed non perspiciatis quo soluta? Id eum aliquam fuga blanditiis optio inventore?
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate doloremque quod dicta facilis voluptatem dolorum atque repellat officiis sint, magnam officia quos debitis est expedita quasi temporibus aspernatur quis porro.
+                </p>
+                <span></span>
+            </div>
+            <div class="items" id="item2">
+                <h3>Item 2</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit expedita cupiditate suscipit voluptatum quos,
+                    iure,
+                    laudantium a harum nihil, eos minus esse commodi blanditiis totam perferendis cum iusto architecto
+                    distinctio.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque magni fugit corporis reprehenderit reiciendis
+                    et Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus eius perferendis velit aliquam sed eos corrupti aut nisi iste sint veniam deleniti a, dolores saepe explicabo magni debitis quam. Deserunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid iure illum earum unde excepturi dolor beatae eos laborum esse ratione ipsum inventore qui architecto itaque mollitia minima quod, rem neque.
+                </p>
+                <span></span>
+            </div>
+            <div class="items" id="item3">
+                <h3>Item 3</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit expedita cupiditate suscipit voluptatum quos,
+                    iure,
+                    laudantium a harum nihil, eos minus esse commodi blanditiis totam perferendis cum iusto architecto
+                    distinctio.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque magni fugit corporis reprehenderit reiciendis
+                    et Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa eos aut quae voluptatem voluptatum, iure autem nostrum placeat quod dolore praesentium nobis quasi voluptates dicta et, rerum vero vitae aperiam? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia in officiis, ad ullam eum labore dolorum ab, cum accusamus pariatur maxime sint, non unde fuga distinctio neque nisi veniam aliquam.
+                    
+                </p>
+                <span></span>
+            </div>
+        </div>
+   </main>
+
+
+   <script>
+        $(document).ready(function(){
+            $(".side-navbar a").on("scroll",function(){
+                $(this).addClass("active")
+                $(this).siblings().removeClass("active")
+            })
+            $(".main-content").on("scroll",function(){
+                console.log($("#item2").position().top)
+                if ($("#item1").position().top < 150 ) {
+                    console.log("If called ==>")
+                    $("#a1").trigger("scroll")
+                }
+                if($("#item2").position().top < 150){
+                    console.log("If called ==>")
+                    $("#a2").trigger("scroll")
+                }
+                if ($("#item3").position().top < 150) {
+                    console.log("If called ==>")
+                    $("#a3").trigger("scroll")
+                }
+            })
+            // console.log($(".items"))
+            // $("#a2").on("click",function(){
+            //     $("#item2").animate({
+            //         scrollTop : $(this).offset().top
+            //     })
+            // })
+        })
+   </script>
 </body>
 </html>
