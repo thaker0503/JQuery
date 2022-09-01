@@ -62,7 +62,7 @@
 <body>
     <div class="container">
         <h3><i class="fa-solid fa-minus down"></i> Accordion 1  </h3>
-        <div class="ard_info active">
+        <div class="ard_info">
             <hr>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolor voluptatem non asperiores
                 soluta voluptatibus quisquam molestias excepturi ut a ipsam accusamus odio quis unde qui earum rem ex
@@ -104,17 +104,20 @@
             //     $("h3").children().addClass("fa-plus")
 
             // }
-            
+            $(".ard_info").first().slideDown(500)
             $("h3").click(function () {
-                if ($(this).children().hasClass("fa-plus")) {
-                    $(this).children().removeClass("fa-plus").addClass("fa-minus")
-                }
-                else {
-                    $(this).children().removeClass("fa-minus").addClass("fa-plus")
-
-                }
-                $(this).siblings("div").toggleClass("active")
-                $(this).parent().siblings().children("div").removeClass("active")
+                $(this).children().addClass("fa-minus").removeClass("fa-plus")
+                var container = $(this).parent().siblings().children("div")
+                var children1 = $(this).parent().siblings().children("h3").children().hasClass("fa-plus")
+                container.siblings().children().removeClass("fa-minus").addClass("fa-plus")
+                container.slideUp(500)
+                console.log()
+                var plus = $(this).children().hasClass("fa-plus")
+                $(this).siblings("div").slideToggle(500)
+                // $(this).children().addClass("fa-minus").removeClass("fa-plus")
+                // $(this).children().addClass("fa-plus").removeClass("fa-minus")
+                
+                // $(this).parent().siblings().children("div").removeClass("active")
 
 
                 // // $(this).children().toggleClass("fa-plus fa-minus")
