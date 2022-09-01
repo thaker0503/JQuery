@@ -100,6 +100,7 @@
     </main>
 
     <script>
+        var count = 0
         $(document).ready(function () {
             $("img").on("click",function(){
                 $(this).trigger("showImg")
@@ -120,6 +121,17 @@
                     console.log(event.pageX)
                     if(event.pageX > 900){
                        $('<div class="next"><i class="fa-solid fa-chevron-right"></i></div>').appendTo(".showImg")
+                       $(".next").click(function(){
+                         for (let i = 0; i < $("main img").length; i++) {
+                               console.log(i)
+                               console.log($("main img")[i].attributes[0])
+                            //    if(  $("main img")[i].attributes[0] == $("main img")[$("main img").length - 1].attributes[0]){
+                            //     console.log("Match Found!!!")
+                            //     console.log($("main img")[0])
+                            //     console.log(i)
+                            //    }
+                           }
+                       })
                     }
                     else if(event.pageX < 350){
                         $('<div class="prev"><i class="fa-solid fa-chevron-left"></i></div>').appendTo(".showImg")
@@ -132,7 +144,7 @@
                     
                     // console.log(event.pageY)
                 })
-                
+
                 
             })
             
