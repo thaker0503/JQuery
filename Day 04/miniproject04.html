@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LightBox | jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"
+        integrity="sha512-HHsOC+h3najWR7OKiGZtfhFIEzg5VRIPde0kB0bG2QRidTQqf+sbfcxCTB16AcFB93xMjnBIKE29/MjdzXE+qw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: white;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #d7d7d7;
+        }
+        main{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-around;
+        }
+        img{
+            width: 200px;
+            height: auto;
+            border: solid white;
+            cursor: pointer;
+        }
+        .container{
+            position: absolute;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            /* left: 100px; */
+            background: #50413550;
+            /* display: none; */
+        }
+        .showImg{
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .showImg img{
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            cursor: auto;
+        }
+        .showImg i{
+            position: absolute;
+            color: black;
+            font-size: 25px;
+            top: 15px;
+            right: 25px;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .next{
+            position: absolute;
+            font-size: 30px;
+            top: 50%;
+            display: flex;
+            align-items: center;
+            right: 10px;
+            cursor: pointer;
+        }
+        .prev{
+            position: absolute;
+            font-size: 30px;
+            top: 50%;
+            display: flex;
+            align-items: center;
+            left: 90px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <img src="./img/1.jpg" alt="">
+        <img src="./img/2.jpg" alt="">
+        <img src="./img/3.jpg" alt="">
+        <img src="./img/4.jpg" alt="">
+    </main>
+
+    <script>
+        $(document).ready(function () {
+            $("img").on("click",function(){
+                $(this).trigger("showImg")
+                $(".showImg img").attr({
+                    src : `${this.src}`,
+                    width : '100%',
+                    height : 'auto'
+                })
+                
+            })
+            $("img").on("showImg", function(){
+                $("<div class='container'></div>").appendTo("main")
+                $("<div class='showImg'><img src=''></img><i id='close' class='fa-sharp fa-solid fa-xmark'></i></div>").appendTo(".container")
+                $("#close").click(function () {
+                    $(".container").remove()
+                })
+                $(".showImg").mousemove(function () {
+                    console.log(event.pageX)
+                    if(event.pageX > 900){
+                       $('<div class="next"><i class="fa-solid fa-chevron-right"></i></div>').appendTo(".showImg")
+                    }
+                    else if(event.pageX < 350){
+                        $('<div class="prev"><i class="fa-solid fa-chevron-left"></i></div>').appendTo(".showImg")
+
+                    }
+                    else{
+                        $(this).find(".next").remove()
+                        $(this).find(".prev").remove()
+                    }
+                    
+                    // console.log(event.pageY)
+                })
+                
+                
+            })
+            
+            
+            
+        })
+    </script>
+</body>
+</html>
