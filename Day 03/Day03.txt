@@ -24,3 +24,7 @@
      - not()
      - filter()
 2. Creating Accordion using HTML, CSS and jQuery    <==  Pending
+
+
+
+    

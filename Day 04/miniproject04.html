@@ -24,6 +24,7 @@
             justify-content: center;
             align-items: center;
             background: #d7d7d7;
+            overflow: hidden;
         }
         main{
             display: flex;
@@ -74,38 +75,65 @@
         .next{
             position: absolute;
             font-size: 30px;
-            top: 50%;
+            width: 30%;
+            height: 100%;
+            
             display: flex;
             align-items: center;
             right: 10px;
             cursor: pointer;
         }
+        .next i{
+            top: 50%;
+        }
         .prev{
+            width: 30%;
+            height: 100%;
             position: absolute;
             font-size: 30px;
-            top: 50%;
             display: flex;
             align-items: center;
-            left: 90px;
+            left: 0px;
             cursor: pointer;
+        }
+        .prev i{
+            position: absolute;
+            /* float: left; */
+            left: 20px;
+            top: 50%;
+        }
+        #close{
+            z-index: 2;
         }
     </style>
 </head>
 <body>
     <main>
-        <img src="./img/1.jpg" alt="">
+        <!-- <img src="./img/1.jpg" alt="">
         <img src="./img/2.jpg" alt="">
         <img src="./img/3.jpg" alt="">
-        <img src="./img/4.jpg" alt="">
+        <img src="./img/4.jpg" alt=""> -->
     </main>
 
     <script>
+        const imgArr = [
+            "./img/1.jpg",
+            "./img/2.jpg",
+            "./img/3.jpg",
+            "./img/4.jpg"
+        ]
         var count = 0
+        var id;
         $(document).ready(function () {
+            imgArr.forEach((img,index) => {
+                $(`<img src='${img}' id='${index}'></img>`).appendTo("main")
+                id = index;
+            })
             $("img").on("click",function(){
                 $(this).trigger("showImg")
                 $(".showImg img").attr({
                     src : `${this.src}`,
+                    id : `${this.id}`,
                     width : '100%',
                     height : 'auto'
                 })
@@ -113,24 +141,34 @@
             })
             $("img").on("showImg", function(){
                 $("<div class='container'></div>").appendTo("main")
-                $("<div class='showImg'><img src=''></img><i id='close' class='fa-sharp fa-solid fa-xmark'></i></div>").appendTo(".container")
+                $("<div class='showImg'><img src='' id=''></img><i id='close' class='fa-sharp fa-solid fa-xmark'></i></div>").appendTo(".container")
                 $("#close").click(function () {
                     $(".container").remove()
                 })
                 $(".showImg").mousemove(function () {
-                    console.log(event.pageX)
+                    // console.log(event.pageX)
                     if(event.pageX > 900){
                        $('<div class="next"><i class="fa-solid fa-chevron-right"></i></div>').appendTo(".showImg")
                        $(".next").click(function(){
-                         for (let i = 0; i < $("main img").length; i++) {
-                               console.log(i)
-                               console.log($("main img")[i].attributes[0])
-                            //    if(  $("main img")[i].attributes[0] == $("main img")[$("main img").length - 1].attributes[0]){
-                            //     console.log("Match Found!!!")
-                            //     console.log($("main img")[0])
-                            //     console.log(i)
-                            //    }
-                           }
+                            console.log($(this).siblings("img").attr("src"))
+                            imgArr.forEach((img,index) => {
+                                console.log("Inside ForEach ==>")
+                                var i = $(this).siblings("img").attr("src").split("img")[1];
+                                console.log(i)
+                                // console.log(index)
+                                if(img.includes(i)){
+                                    // var a = $(this).siblings("img").attr("id")
+                                    console.log("If ran==>")
+                                    console.log(imgArr[index++])
+                                    console.log(index)
+                                    // $(this).siblings("img").attr({
+                                    //     id : `${index++}`,
+                                    //     src : `${imgArr[i++]}`
+                                    // })
+
+                                }
+                                console.log(img)
+                            })
                        })
                     }
                     else if(event.pageX < 350){
@@ -142,7 +180,6 @@
                         $(this).find(".prev").remove()
                     }
                     
-                    // console.log(event.pageY)
                 })
 
                 
