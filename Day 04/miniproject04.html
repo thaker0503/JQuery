@@ -122,13 +122,14 @@
             "./img/3.jpg",
             "./img/4.jpg"
         ]
-        var count = 0
-        var id;
-        $(document).ready(function () {
-            imgArr.forEach((img,index) => {
+        imgArr.forEach((img, index) => {
                 $(`<img src='${img}' id='${index}'></img>`).appendTo("main")
                 id = index;
             })
+        var count = 0
+        var id;
+        $(document).ready(function () {
+            
             $("img").on("click",function(){
                 $(this).trigger("showImg")
                 $(".showImg img").attr({
