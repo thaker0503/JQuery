@@ -101,9 +101,11 @@
         }
         .progress{
             position: fixed;
-            margin: 0;
-            padding: 0;
+            width: 100%;
         }
+        /* nav{
+            height: 35px;
+        } */
         
 
 
@@ -111,11 +113,13 @@
     </style>
 </head>
 <body>
-    
     <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow="25"
-            aria-valuemin="0" aria-valuemax="100" id="scrollspy"> </div>
+        <div class="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0"
+            aria-valuemax="100" id="scrollspy"> </div>
     </div>
+    
+        
+    
    <main>
         <div class="side-navbar">
             <a href="#item1" id="a1" class="active">Item 1</a>
@@ -178,8 +182,10 @@
    <div class="footer"></div>
 
    <script>
+
         var value = 0;
         $(document).ready(function(){
+            console.log($(document).height())
             
             $("#scrollspy").css("width",`${value}%`)
             $(".sec-1").css({
@@ -211,40 +217,40 @@
                 $(this).siblings().removeClass("active")
             })
             $(".content").on("scroll", function () {
-                console.log($("#red").position().top)
+                // console.log($("#red").position().top)
                 if ($("#red").position().top > 210) {
-                    console.log("If called ==>")
+                    // console.log("If called ==>")
                     $("#b1").trigger("scroll")
                 }
                 if ($("#green").position().top < 600) {
-                    console.log("If called ==>")
+                    // console.log("If called ==>")
                     $("#b2").trigger("scroll")
                 }
                 if ($("#blue").position().top < 600) {
-                    console.log("If called ==>")
+                    // console.log("If called ==>")
                     $("#b3").trigger("scroll")
                 }
             })
 
             $(".main-content").on("scroll",function(){
-                console.log($("#item2").position().top)
+                // console.log($("#item2").position().top)
                 
                 if ($("#item1").position().top < 150 ) {
-                    console.log("If called ==>")
+                    // console.log("If called ==>")
                     $("#a1").trigger("scroll")
                 }
                 if($("#item2").position().top < 150){
-                    console.log("If called ==>")
+                    // console.log("If called ==>")
                     $("#a2").trigger("scroll")
                 }
                 if ($("#item3").position().top < 150) {
-                    console.log("If called ==>")
+                    // console.log("If called ==>")
                     $("#a3").trigger("scroll")
                 }
             })
 
             $(window).scroll(function(){
-                value = $(this).scrollTop()
+                value = ($(this).scrollTop()/ $(document).height()) * 1880
                 $("#scrollspy").css("width",`${value}`)
             })
             // console.log($(".items"))
