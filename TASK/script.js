@@ -7,9 +7,10 @@ window.addEventListener('scroll', function () {
 
 window.addEventListener('scroll', function () {
     if (!video.paused) {
-    video.play();
-}
+        video.play();
+    }
     else video.pause();
 });
 
-    
+
+
